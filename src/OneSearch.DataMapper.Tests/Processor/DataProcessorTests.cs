@@ -24,7 +24,7 @@ namespace OneSearch.DataMapper.Tests.Processor
             messageProcessorMock.Setup(x => x.Process(It.IsAny<IEnumerable<string>>()))
                 .ReturnsAsync(new List<StorageItem>());
 
-            var queueMock = new Mock<IChannel>();
+            var queueMock = new Mock<IQueue>();
             queueMock.Setup(x => x.GetMessages()).ReturnsAsync(queueMessagesMock.Object);
 
             var storageMock = new Mock<IDataStorage>();
@@ -52,7 +52,7 @@ namespace OneSearch.DataMapper.Tests.Processor
             messageProcessorMock.Setup(x => x.Process(It.IsAny<IEnumerable<string>>()))
                 .ReturnsAsync(new List<StorageItem>());
 
-            var queueMock = new Mock<IChannel>();
+            var queueMock = new Mock<IQueue>();
             queueMock.Setup(x => x.GetMessages()).ThrowsAsync(new Exception());
 
             var storageMock = new Mock<IDataStorage>();
@@ -73,7 +73,7 @@ namespace OneSearch.DataMapper.Tests.Processor
             messageProcessorMock.Setup(x => x.Process(It.IsAny<IEnumerable<string>>()))
                 .ReturnsAsync(new List<StorageItem>());
 
-            var queueMock = new Mock<IChannel>();
+            var queueMock = new Mock<IQueue>();
             queueMock.Setup(x => x.GetMessages()).ReturnsAsync(queueMessagesMock.Object);
 
             var storageMock = new Mock<IDataStorage>();

@@ -17,13 +17,13 @@ namespace OneSearch.DataMapper.Processor
         private readonly BlockingCollection<(IMessages QueueMessages, List<StorageItem> MappedItems)>
             producerConsumerQueue;
 
-        private readonly IChannel channel;
+        private readonly IQueue queue;
         private readonly IDataStorage storage;
 
-        public DataProcessor(IChannel channel, IMessageProcessor messageProcessor, IDataStorage storage,
+        public DataProcessor(IQueue queue, IMessageProcessor messageProcessor, IDataStorage storage,
             DataProcessorOptions options)
         {
-            this.channel = channel;
+            this.queue = queue;
             this.messageProcessor = messageProcessor;
             this.storage = storage;
             this.options = options;
@@ -43,7 +43,7 @@ namespace OneSearch.DataMapper.Processor
         {
             while (true)
             {
-                var queueMessages = await channel.GetMessages();
+                var queueMessages = await queue.GetMessages();
                 var mappedItems = await messageProcessor.Process(queueMessages.Messages);
                 while (!producerConsumerQueue.TryAdd((queueMessages, mappedItems)))
                     await Task.Delay(options.ProduceMessageWaitMilliseconds);

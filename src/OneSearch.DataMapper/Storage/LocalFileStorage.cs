@@ -14,9 +14,9 @@ namespace OneSearch.DataMapper.Storage
     {
         private readonly List<byte> data = new List<byte>();
         private readonly IStorageCompressor storageCompressor;
-        private readonly StorageOptions options;
+        private readonly LocalFileStorageOptions options;
 
-        public LocalFileStorage(IStorageCompressor storageCompressor, StorageOptions options)
+        public LocalFileStorage(IStorageCompressor storageCompressor, LocalFileStorageOptions options)
         {
             this.storageCompressor = storageCompressor;
             this.options = options;
@@ -32,7 +32,7 @@ namespace OneSearch.DataMapper.Storage
             data.Clear();
             Output(items);
 
-            return (HttpStatusCode.OK, JsonConvert.SerializeObject(new object[0]));
+            return (HttpStatusCode.OK, JsonConvert.SerializeObject(System.Array.Empty<object>()));
         }
 
         private async Task<IEnumerable<StorageItem>> Deserialize()
@@ -47,7 +47,7 @@ namespace OneSearch.DataMapper.Storage
             {
                 if (!string.IsNullOrEmpty(item.Id))
                 {
-                    var file = Path.Combine(options.LocalFileStorageFolder, $"{item.Id}.json");
+                    var file = Path.Combine(options.StorageFolder, $"{item.Id}.json");
                     if (string.IsNullOrEmpty(item.Data))
                     {
                         if (File.Exists(file))

@@ -17,13 +17,13 @@ namespace OneSearch.DataMapper.Tests.Processor
 
             var list = new List<StorageItem>
             {
-                new StorageItem("2", ""),
+                new("2", ""),
                 item2,
-                new StorageItem("1", ""),
-                new StorageItem("1", ""),
+                new("1", ""),
+                new("1", ""),
                 item3,
-                new StorageItem("1", ""),
-                new StorageItem("1", ""),
+                new("1", ""),
+                new("1", ""),
                 item1
             };
 

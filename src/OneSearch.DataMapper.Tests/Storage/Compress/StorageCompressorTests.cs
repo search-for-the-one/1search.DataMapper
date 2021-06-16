@@ -16,8 +16,8 @@ namespace OneSearch.DataMapper.Tests.Storage.Compress
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             foreach (var compressor in storageCompressors)

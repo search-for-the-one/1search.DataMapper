@@ -2,7 +2,7 @@
 
 namespace OneSearch.DataMapper.Messaging
 {
-    public interface IChannel
+    public interface IQueue
     {
         Task<IMessages> GetMessages();
     }
