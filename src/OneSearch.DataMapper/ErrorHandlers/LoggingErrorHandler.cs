@@ -15,7 +15,8 @@ namespace OneSearch.DataMapper.ErrorHandlers
 
         public Task Handle(string message, string errorMessage, Exception exception = null)
         {
-            logger.LogError(exception == null ? $"{errorMessage} {message}" : $"{errorMessage} {message} {exception}");
+            logger.LogError(exception, "{ErrorMessage} {Message}", errorMessage, message);
+
             return Task.CompletedTask;
         }
     }

@@ -20,14 +20,14 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var responseItems = new List<StorageResponseItem>
             {
-                new StorageResponseItem {StatusCode = (int) HttpStatusCode.OK},
-                new StorageResponseItem {StatusCode = 400}
+                new() {StatusCode = (int) HttpStatusCode.OK},
+                new() {StatusCode = 400}
             };
 
             var dataStorage = new DataStorage(new Mock<ILogger<DataStorage>>().Object,
@@ -42,14 +42,14 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var responseItems = new List<StorageResponseItem>
             {
-                new StorageResponseItem {StatusCode = (int) HttpStatusCode.OK},
-                new StorageResponseItem {StatusCode = 500}
+                new() {StatusCode = (int) HttpStatusCode.OK},
+                new() {StatusCode = 500}
             };
 
             var dataStorage = new DataStorage(new Mock<ILogger<DataStorage>>().Object,
@@ -64,14 +64,14 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var responseItems = new List<StorageResponseItem>
             {
-                new StorageResponseItem {StatusCode = (int) HttpStatusCode.OK},
-                new StorageResponseItem {StatusCode = 500}
+                new() {StatusCode = (int) HttpStatusCode.OK},
+                new() {StatusCode = 500}
             };
 
             var dataStorage = new DataStorage(new Mock<ILogger<DataStorage>>().Object,
@@ -86,14 +86,14 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var responseItems = new List<StorageResponseItem>
             {
-                new StorageResponseItem {StatusCode = (int) HttpStatusCode.OK},
-                new StorageResponseItem {StatusCode = 500}
+                new() {StatusCode = (int) HttpStatusCode.OK},
+                new() {StatusCode = 500}
             };
 
             var dataStorage = new DataStorage(new Mock<ILogger<DataStorage>>().Object,
@@ -108,14 +108,14 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var responseItems = new List<StorageResponseItem>
             {
-                new StorageResponseItem {StatusCode = (int) HttpStatusCode.OK},
-                new StorageResponseItem {StatusCode = 500}
+                new() {StatusCode = (int) HttpStatusCode.OK},
+                new() {StatusCode = 500}
             };
 
             var dataStorage = new DataStorage(new Mock<ILogger<DataStorage>>().Object,
@@ -130,14 +130,8 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
-            };
-
-            var responseItems = new List<StorageResponseItem>
-            {
-                new StorageResponseItem {StatusCode = (int) HttpStatusCode.OK},
-                new StorageResponseItem {StatusCode = 500}
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var dataStorage = new DataStorage(new Mock<ILogger<DataStorage>>().Object,
@@ -152,8 +146,8 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var dataStorage = new DataStorage(new Mock<ILogger<DataStorage>>().Object,
@@ -168,8 +162,8 @@ namespace OneSearch.DataMapper.Tests.Storage
         {
             var items = new List<StorageItem>
             {
-                new StorageItem("123", "data1"),
-                new StorageItem("453", "data2")
+                new("123", "data1"),
+                new("453", "data2")
             };
 
             var storageMock = new Mock<IRetryableStorage>();

@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OneSearch.DataMapper\OneSearch.DataMapper.csproj" />
-        <PackageReference Include="OneSearch.DataMapper.Messaging.RabbitMq" Version="1.0.5" />
+        <ProjectReference Include="..\OneSearch.DataMapper\OneSearch.DataMapper.csproj" />
+        <PackageReference Include="OneSearch.DataMapper.Messaging.RabbitMq" Version="1.0.10" />
     </ItemGroup>
 
     <ItemGroup>

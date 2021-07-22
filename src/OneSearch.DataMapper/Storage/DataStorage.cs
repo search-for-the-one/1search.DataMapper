@@ -61,7 +61,7 @@ namespace OneSearch.DataMapper.Storage
             }
 
             CheckResponse(statusCode, response);
-            logger.LogInformation("Update {ads} successfully", string.Join(" ", items.Select(x => x.Id)));
+            logger.LogInformation("Update {Ads} successfully", string.Join(" ", items.Select(x => x.Id)));
         }
 
         private async Task<(HttpStatusCode statusCode, string response)> TrySave(

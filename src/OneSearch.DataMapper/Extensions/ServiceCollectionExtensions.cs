@@ -13,6 +13,7 @@ namespace OneSearch.DataMapper.Extensions
 {
     public static class ServiceCollectionExtensions
     {
+        // ReSharper disable once UnusedMethodReturnValue.Global
         public static IServiceCollection AddDataMapper<TMessageMapper>(this IServiceCollection services,
             IConfigurationRoot configuration) where TMessageMapper : class, IMessageMapper
         {
@@ -31,16 +32,18 @@ namespace OneSearch.DataMapper.Extensions
             services.AddConfig<StorageOptions>(configuration);
             services.AddConfig<MessageProcessorOptions>(configuration);
             services.AddConfig<DataProcessorOptions>(configuration);
+            services.AddConfig<FactoryOptions>(configuration);
+            services.AddConfig<LocalFileStorageOptions>(configuration);
 
             services.AddSingletonFromFactory<IStorage>(factory =>
                 factory.AddService<WebStorage>(nameof(WebStorage))
                     .AddService<LocalFileStorage>(nameof(LocalFileStorage))
-                    .WithOption<StorageOptions>(options => options.Storage));
+                    .WithOption<FactoryOptions>(options => options.Storage));
 
             services.AddSingletonFromFactory<IStorageCompressor>(factory =>
                 factory.AddService<GZipCompressor>()
                     .AddService<BrotliCompressor>()
-                    .WithOption<StorageOptions>(options => options.StorageCompressor));
+                    .WithOption<FactoryOptions>(options => options.StorageCompressor));
 
             return services;
         }
