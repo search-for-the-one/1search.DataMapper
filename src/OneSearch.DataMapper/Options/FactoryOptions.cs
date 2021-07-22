@@ -5,7 +5,6 @@ namespace OneSearch.DataMapper.Options
 {
     public class FactoryOptions : IConfig
     {
-        public string Queue { get; set; }
         public string Storage { get; set; }
         public string StorageCompressor { get; set; } = nameof(BrotliCompressor);
     }

@@ -13,6 +13,7 @@ namespace OneSearch.DataMapper.Extensions
 {
     public static class ServiceCollectionExtensions
     {
+        // ReSharper disable once UnusedMethodReturnValue.Global
         public static IServiceCollection AddDataMapper<TMessageMapper>(this IServiceCollection services,
             IConfigurationRoot configuration) where TMessageMapper : class, IMessageMapper
         {
