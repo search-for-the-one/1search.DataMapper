@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneSearch.DataMapper.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneSearch.DataMapper", "OneSearch.DataMapper\OneSearch.DataMapper.csproj", "{097270C7-4F99-4AC5-A62C-1F9AB9863540}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneSearch.DataMapper.IntegrationTest", "OneSearch.DataMapper.IntegrationTest\OneSearch.DataMapper.IntegrationTest.csproj", "{AAEB4840-CD33-4765-97D1-B00D8B52DCBE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{097270C7-4F99-4AC5-A62C-1F9AB9863540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{097270C7-4F99-4AC5-A62C-1F9AB9863540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{097270C7-4F99-4AC5-A62C-1F9AB9863540}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AAEB4840-CD33-4765-97D1-B00D8B52DCBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAEB4840-CD33-4765-97D1-B00D8B52DCBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAEB4840-CD33-4765-97D1-B00D8B52DCBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAEB4840-CD33-4765-97D1-B00D8B52DCBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
