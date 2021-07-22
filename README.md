@@ -109,19 +109,30 @@ internal class Program
 ### Settings
 ```
 {
+    "QueueOptions": {}, // Configures queue credentials. If write data to local directory leave this empty
+    "FactoryOptions": {
+        "Queue": "LocalFileQueue", // Type of mapping data destination. Options: LocalFileQueue, RabbitMessageQueue
+        "Storage": "LocalFileStorage",  // Type of mapping data origin. Options: LocalFileStorage, WebStorage
+        "StorageCompressor": "BrotliCompressor" // Type of compressor of mapped data out to storage. Options: BrotliCompressor, GZipCompressor
+    },
+    "LocalFileStorageOptions": {
+        "StorageFolder": "/your/path/to/storage" // Local directory if you choose LocalFileStorage as FactoryOptions.Storage. Omit if FactoryOptions.Storage is not LocalFileStorage
+    },
+    "LocalFileQueueOptions": {
+        "QueueFolder": "/your/path/to/queue",  // Local directory if you choose LocalFileQueue as FactoryOptions.Queue. Omit if FactoryOptions.Storage is not LocalFileStorage
+        "CountLimit": 100  // limit of LocalFileQueue batch process
+    },
     "StorageOptions": {
-        "Storage": "LocalFileStorage",
-        "StorageCompressor": "BrotliCompressor",
-        "Url": "http://your.1search.storage.endpoint/Storage/multipart",
-        "LocalFileStorageFolder": "/path/to/your/storage"
+        "Url": "http://your.1search.storage.endpoint/Storage/multipart"  // 1search upload endpoint if you choose FactoryOptions.Storage as WebStorage. Omit if FactoryOptions.Storage is LocalFileStorage
     },
     "MessageProcessorOptions": {
-        "ProcessInParallel": true
+        "ProcessInParallel": true  // If process data in parallel
     },
-    "DataProcessorOptions": {
-        "ProducerConsumerQueueSize": 2,
+    "DataProcessorOptions": {  // Configure this if FactoryOptions.Queue is RabbitMessageQueue
+        "ProducerConsumerQueueSize": 2,  
         "ProduceMessageWaitMilliseconds": 50,
         "FetchMessagesWaitMilliseconds": 1000
     }
 }
 ```
+
