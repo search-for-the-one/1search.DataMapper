@@ -1,6 +1,11 @@
 # Data mapper
 
+[![NuGet version (SoftCircuits.Silk)](https://img.shields.io/nuget/v/OneSearch.DataMapper)]()
+
 This is a C# client library to help you bridge data sources and 1search cluster.
+
+
+
 
 <pre>
 
