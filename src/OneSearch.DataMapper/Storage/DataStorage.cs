@@ -96,27 +96,27 @@ namespace OneSearch.DataMapper.Storage
         {
             if (statusCode != HttpStatusCode.OK)
             {
-                OnFail((int) statusCode);
+                OnFail((int)statusCode, response);
                 return;
             }
 
             var responseItems = JsonConvert.DeserializeObject<IEnumerable<StorageResponseItem>>(response);
             foreach (var responseItem in responseItems)
             {
-                if (responseItem.StatusCode.Equals((int) HttpStatusCode.OK) ||
+                if (responseItem.StatusCode.Equals((int)HttpStatusCode.OK) ||
                     options.IgnoredHttpStatusCodes.Contains(responseItem.StatusCode))
                     continue;
 
                 logger.LogError($"Got {responseItem.StatusCode} {responseItem.Message} from web storage");
-                OnFail(responseItem.StatusCode);
+                OnFail(responseItem.StatusCode, responseItem.Message);
             }
         }
 
-        private void OnFail(int statusCode)
+        private void OnFail(int statusCode, string response)
         {
             if (!options.SilentOnError)
                 throw new StorageException(
-                    $"Failed to forward items to web storage with {nameof(HttpStatusCode)}: {statusCode}");
+                    $"Failed to forward items to web storage with {nameof(HttpStatusCode)}: {statusCode}. Response: {response}");
         }
     }
 }
